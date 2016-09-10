@@ -55,7 +55,15 @@ TEMPLATES = (
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default="postgres:///channels-example", conn_max_age=500)
+    #'default': dj_database_url.config(default="postgres:///linda:harrypotter@localhost:6379/channelsexample", conn_max_age=500)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'channelsexample',
+        'USER': 'linda',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = (
@@ -131,3 +139,7 @@ LOGGING = {
         },
     },
 }
+
+#start the redis server by typing redis-server in the command line.
+#psql
+#\list
